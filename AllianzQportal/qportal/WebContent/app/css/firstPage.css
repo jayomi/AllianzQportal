@@ -1,0 +1,111 @@
+ 
+
+    .nav-wrapper {
+    position: relative;
+    box-shadow: none;
+    z-index: 10;
+}
+.nav-wrapper {
+    padding: 0px 15px;
+    background-color: transparent;
+}
+        
+        .navbar-top {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border: 0px none;
+    background-color: transparent !important;
+    padding: 15px;
+}
+  
+  
+.recall {
+   position:fixed;
+   left:0px;
+   bottom:40px;
+   height:35px;
+padding: 5px;
+padding-right: 40px;
+   width:100%;
+color: #1E88E5;
+}   
+        
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:35px;
+padding: 5px;
+   width:100%;
+color: #1E88E5;
+   background:#F2F2F2;
+}
+
+
+
+* html .footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+        
+.loginlogo{
+                margin-bottom:10px;
+}
+.mainstrip{
+                /*background-color:#1c75bf;*/
+                padding:20px;
+
+}
+
+.mainstripoutside{
+                                padding-left: 0px !important;
+                padding-right: 0px !important;
+}
+.search{
+margin-left:auto;
+margin-right:auto;
+margin-bottom:20px;
+}
+
+
+@media only screen and (min-width: 480px) {
+	.search{
+		width:100%;
+		}
+}
+
+@media only screen and (min-width: 768px) {
+	.search{
+		width:100%;
+		}
+}
+
+@media only screen and (min-width: 960px) {
+	.search{
+		width:100%;
+		}
+}
+
+@media only screen and (min-width: 1024px) {
+	.search{
+		width:100%;
+		}
+}
+
+@media only screen and (min-width: 1200px) {
+	.search{
+		width:60%;
+		}
+}
+     

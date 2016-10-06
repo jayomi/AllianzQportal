@@ -1,0 +1,23 @@
+.sigPad {
+	width: 275px;
+	margin: 0 auto;
+}
+.signed {
+	width: 275px;
+	margin: 0 auto;
+}
+.sigPad #submit {
+	float: left;
+	margin-top: 15px;
+}
+.sigPad #clear {
+	float: right;
+	margin-top: 15px;
+}
+.sigPad .sig.sigWrapper .pad {
+	border: 1px dotted #999;	
+}
+.error { padding: 5px; background-color:#C00; color: #fff; width: 275px; }
+.current .pad {
+	cursor: url("pen.png") 8 8, crosshair;
+}

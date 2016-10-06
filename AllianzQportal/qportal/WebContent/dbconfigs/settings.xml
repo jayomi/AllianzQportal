@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connection>
+	<server>localhost</server>
+	<port>3306</port>
+	<database>qportal_new</database>
+	<username>root</username>
+	<password>root</password>
+</connection>
+ 
+ <!-- <connection>
+	<server>192.168.128.155</server>
+	<port>3306</port>
+	<database>qportal_new</database>
+	<username>uportal</username>
+	<password>7PB8UaTp</password>
+</connection> -->
+
+<!--  <connection>
+	<server>localhost</server>
+	<port>3306</port>
+	<database>qportal_new</database>
+	<username>root</username>
+	<password>1234</password>
+</connection>  -->
+
+
+<!-- <connection>
+	<server>192.168.128.36</server>
+	<port>3306</port>
+	<database>qportal_new</database>
+	<username>qportal</username>
+	<password>qportal_new</password>
+</connection>
+ -->
