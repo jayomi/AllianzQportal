@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.Article" table="article" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idArticle" type="java.lang.Integer">
+            <column name="id_article" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="articleCat" class="map_hr.ArticleCat" fetch="select">
+            <column name="article_cat_id_cat" not-null="true" />
+        </many-to-one>
+        <property name="articleName" type="string">
+            <column name="article_name" length="45" not-null="true" />
+        </property>
+        <property name="articleDetail" type="string">
+            <column name="article_detail" length="65535" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="Created_date" length="19" not-null="true" />
+        </property>
+        <property name="isActive" type="boolean">
+            <column name="is_active" not-null="true" />
+        </property>
+        <set name="articleBacklogs" table="article_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="article_id_article" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.ArticleBacklog" />
+        </set>
+        <set name="existingEmpLists" table="article_has_existing_emp_list" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="article_id_article" not-null="true" />
+            </key>
+            <many-to-many entity-name="map_hr.ExistingEmpList">
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="narrowvationArticles" table="narrowvation_article" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="article_id_article" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.NarrowvationArticle" />
+        </set>
+    </class>
+</hibernate-mapping>

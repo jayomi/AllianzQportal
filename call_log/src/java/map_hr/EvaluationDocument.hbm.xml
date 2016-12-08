@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.EvaluationDocument" table="evaluation_document" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idEd" type="java.lang.Integer">
+            <column name="id_ed" />
+            <generator class="identity" />
+        </id>
+        <set name="intervieweeDetailses" table="interviewee_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="evaluation_document_id_ed" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.IntervieweeDetails" />
+        </set>
+    </class>
+</hibernate-mapping>

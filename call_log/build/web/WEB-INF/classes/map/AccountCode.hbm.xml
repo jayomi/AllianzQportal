@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.AccountCode" table="account_code" catalog="azcall" optimistic-lock="version">
+        <id name="idAccountCode" type="java.lang.Integer">
+            <column name="idAccount_code" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="department" class="map.Department" fetch="select">
+            <column name="department_iddepartment" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="codeName" type="string">
+            <column name="code_name" length="45" />
+        </property>
+        <property name="dateGiven" type="date">
+            <column name="Date_given" length="10" />
+        </property>
+        <property name="terminate" type="date">
+            <column name="terminate" length="10" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.NarrowvationArticle" table="narrowvation_article" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="article" class="map_hr.Article" fetch="select">
+            <column name="article_id_article" not-null="true" />
+        </many-to-one>
+        <many-to-one name="existingEmpList" class="map_hr.ExistingEmpList" fetch="select">
+            <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+        </many-to-one>
+        <property name="narrowvationArticle" type="string">
+            <column name="narrowvation_article" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

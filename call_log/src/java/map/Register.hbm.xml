@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.Register" table="register" catalog="azcall" optimistic-lock="version">
+        <id name="idregister" type="java.lang.Integer">
+            <column name="idregister" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="fullname" type="string">
+            <column name="fullname" length="45" />
+        </property>
+        <property name="requestedTime" type="string">
+            <column name="requested_time" length="45" />
+        </property>
+        <property name="clientIp" type="string">
+            <column name="client_ip" length="45" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="45" />
+        </property>
+        <property name="approvedBy" type="string">
+            <column name="approved_by" length="45" />
+        </property>
+        <set name="registerHasExts" table="register_has_ext" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="register_idregister" not-null="true" />
+            </key>
+            <one-to-many class="map.RegisterHasExt" />
+        </set>
+    </class>
+</hibernate-mapping>

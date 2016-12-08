@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.AdLogin" table="ad_login" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idAdLogin" type="java.lang.Integer">
+            <column name="id_AD_Login" />
+            <generator class="identity" />
+        </id>
+        <property name="adLoginName" type="string">
+            <column name="AD_Login_Name" length="45" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="User_Name" length="45" not-null="true" />
+        </property>
+        <property name="empNo" type="string">
+            <column name="EMP_NO" length="45" not-null="true" />
+        </property>
+        <property name="department" type="string">
+            <column name="Department" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

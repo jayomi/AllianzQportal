@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.Assignee" table="assignee" catalog="azcall" optimistic-lock="version">
+        <id name="idassignee" type="java.lang.Integer">
+            <column name="idassignee" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="department" class="map.Department" fetch="select">
+            <column name="department_iddepartment" not-null="true" />
+        </many-to-one>
+        <many-to-one name="extension" class="map.Extension" fetch="select">
+            <column name="extension_idExtension" not-null="true" />
+        </many-to-one>
+        <property name="fullName" type="string">
+            <column name="full_name" length="45" />
+        </property>
+        <property name="designation" type="string">
+            <column name="designation" length="45" />
+        </property>
+        <property name="directNo" type="string">
+            <column name="direct_no" length="45" />
+        </property>
+        <property name="assigneeOrder" type="java.lang.Integer">
+            <column name="assignee_order" />
+        </property>
+        <property name="empNo" type="string">
+            <column name="emp_no" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

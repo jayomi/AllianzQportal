@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.Department" table="department" catalog="azcall" optimistic-lock="version">
+        <id name="iddepartment" type="java.lang.Integer">
+            <column name="iddepartment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="headDepartment" class="map.HeadDepartment" fetch="select">
+            <column name="department_idheaddepartment" />
+        </many-to-one>
+        <property name="departmentName" type="string">
+            <column name="department_name" length="250" />
+        </property>
+        <property name="departmentOrder" type="java.lang.Integer">
+            <column name="department_order" />
+        </property>
+        <set name="assignees" table="assignee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="department_iddepartment" not-null="true" />
+            </key>
+            <one-to-many class="map.Assignee" />
+        </set>
+        <set name="accountCodes" table="account_code" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="department_iddepartment" />
+            </key>
+            <one-to-many class="map.AccountCode" />
+        </set>
+        <set name="headdeptHasDepts" table="headdept_has_dept" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dept_iddept" />
+            </key>
+            <one-to-many class="map.HeaddeptHasDept" />
+        </set>
+    </class>
+</hibernate-mapping>

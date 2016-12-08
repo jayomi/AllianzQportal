@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.History" table="history" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idHistory" type="java.lang.Integer">
+            <column name="idHistory" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="map_hr.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="historyData" type="string">
+            <column name="HistoryData" length="65535" not-null="true" />
+        </property>
+        <property name="dateOfRecord" type="timestamp">
+            <column name="date_of_record" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

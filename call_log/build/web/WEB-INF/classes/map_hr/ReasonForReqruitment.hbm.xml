@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.ReasonForReqruitment" table="reason_for_reqruitment" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idReasonForReqruitment" type="java.lang.Integer">
+            <column name="id_reason_for_reqruitment" />
+            <generator class="identity" />
+        </id>
+        <property name="reason" type="string">
+            <column name="reason" length="45" not-null="true" />
+        </property>
+        <set name="rrfs" table="rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="reason_for_reqruitment_id_reason_for_reqruitment" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Rrf" />
+        </set>
+    </class>
+</hibernate-mapping>

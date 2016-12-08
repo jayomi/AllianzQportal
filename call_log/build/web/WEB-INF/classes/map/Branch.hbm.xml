@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.Branch" table="branch" catalog="azcall" optimistic-lock="version">
+        <id name="idbranch" type="java.lang.Integer">
+            <column name="idbranch" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="headBranch" class="map.HeadBranch" fetch="select">
+            <column name="branch_idheadbranch" />
+        </many-to-one>
+        <property name="branchName" type="string">
+            <column name="branch_name" length="45" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" length="10" />
+        </property>
+        <property name="speedDial" type="string">
+            <column name="speed_dial" length="5" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="10" />
+        </property>
+        <property name="didNo" type="string">
+            <column name="did_no" length="45" />
+        </property>
+        <set name="headbranchHasBranches" table="headbranch_has_branch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="branch_idbranch" />
+            </key>
+            <one-to-many class="map.HeadbranchHasBranch" />
+        </set>
+    </class>
+</hibernate-mapping>

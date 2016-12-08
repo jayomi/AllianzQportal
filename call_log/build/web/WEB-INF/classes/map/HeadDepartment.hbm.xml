@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.HeadDepartment" table="head_department" catalog="azcall" optimistic-lock="version">
+        <id name="idheadDepartment" type="int">
+            <column name="idhead_department" />
+            <generator class="assigned" />
+        </id>
+        <property name="headDepartName" type="string">
+            <column name="head_depart_name" length="45" />
+        </property>
+        <property name="headDepartmentOrder" type="java.lang.Integer">
+            <column name="head_department_order" />
+        </property>
+        <set name="departments" table="department" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="department_idheaddepartment" />
+            </key>
+            <one-to-many class="map.Department" />
+        </set>
+        <set name="headdeptHasDepts" table="headdept_has_dept" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="headdept_idheaddept" />
+            </key>
+            <one-to-many class="map.HeaddeptHasDept" />
+        </set>
+    </class>
+</hibernate-mapping>

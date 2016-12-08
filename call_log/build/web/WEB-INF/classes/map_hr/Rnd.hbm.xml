@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.Rnd" table="rnd" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idRnD" type="java.lang.Integer">
+            <column name="id_RnD" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="existingEmpList" class="map_hr.ExistingEmpList" fetch="select">
+            <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+        </many-to-one>
+        <property name="rorD" type="boolean">
+            <column name="RorD" not-null="true" />
+        </property>
+        <property name="noteRd" type="string">
+            <column name="note_RD" length="65535" not-null="true" />
+        </property>
+        <property name="dateOfAction" type="date">
+            <column name="date_of_action" length="10" not-null="true" />
+        </property>
+        <property name="points" type="java.lang.Integer">
+            <column name="points" />
+        </property>
+        <property name="currentlyAvailable" type="java.lang.Boolean">
+            <column name="currently_available" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.LogStatus" table="log_status" catalog="azcall" optimistic-lock="version">
+        <id name="idlogStatus" type="java.lang.Integer">
+            <column name="idlog_status" />
+            <generator class="identity" />
+        </id>
+        <property name="userIduser" type="java.lang.Integer">
+            <column name="user_iduser" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" />
+        </property>
+        <property name="loggedDate" type="timestamp">
+            <column name="logged_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

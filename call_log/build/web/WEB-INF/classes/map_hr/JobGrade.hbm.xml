@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.JobGrade" table="job_grade" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idJb" type="java.lang.Integer">
+            <column name="id_jb" />
+            <generator class="identity" />
+        </id>
+        <property name="jobGradeData" type="string">
+            <column name="job_grade_data" length="45" not-null="true" />
+        </property>
+        <set name="rrfs" table="rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="job_grade_id_jb" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Rrf" />
+        </set>
+    </class>
+</hibernate-mapping>

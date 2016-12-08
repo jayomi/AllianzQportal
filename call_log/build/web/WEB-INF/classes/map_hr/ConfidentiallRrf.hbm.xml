@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.ConfidentiallRrf" table="confidentiall_rrf" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="confidentialType" class="map_hr.ConfidentialType" fetch="select">
+            <column name="confidential_type_id_confidential_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rrf" class="map_hr.Rrf" fetch="select">
+            <column name="RRF_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

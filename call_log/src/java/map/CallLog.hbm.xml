@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.CallLog" table="call_log" catalog="azcall" optimistic-lock="version">
+        <id name="idcallLog" type="java.lang.Integer">
+            <column name="idcall_log" />
+            <generator class="identity" />
+        </id>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="time" type="time">
+            <column name="time" length="8" />
+        </property>
+        <property name="trunk" type="string">
+            <column name="trunk" length="45" />
+        </property>
+        <property name="internalStationNo" type="string">
+            <column name="internal_station_no" length="45" />
+        </property>
+        <property name="ringDuration" type="time">
+            <column name="ring_duration" length="8" />
+        </property>
+        <property name="callDuration" type="time">
+            <column name="call_duration" length="8" />
+        </property>
+        <property name="stationNo" type="string">
+            <column name="station_no" length="45" />
+        </property>
+        <property name="callChargePulses" type="string">
+            <column name="call_charge_pulses" length="45" />
+        </property>
+        <property name="informationElement" type="java.lang.Integer">
+            <column name="information_element" />
+        </property>
+        <property name="acct" type="string">
+            <column name="ACCT" length="45" />
+        </property>
+        <property name="msn" type="string">
+            <column name="MSN" length="45" />
+        </property>
+        <property name="seizureCode" type="string">
+            <column name="seizure_code" length="45" />
+        </property>
+        <property name="lcrRoute" type="string">
+            <column name="lcr_route" length="45" />
+        </property>
+        <property name="recievedTime" type="timestamp">
+            <column name="recieved_time" length="19" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="250" />
+        </property>
+    </class>
+</hibernate-mapping>

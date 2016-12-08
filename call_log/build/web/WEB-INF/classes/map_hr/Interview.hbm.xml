@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.Interview" table="interview" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="intervieweeDetails" class="map_hr.IntervieweeDetails" fetch="select">
+            <column name="interviewee_details_id_interviewee_details" not-null="true" />
+        </many-to-one>
+        <property name="interName" type="string">
+            <column name="inter_Name" length="45" not-null="true" />
+        </property>
+        <property name="rating" type="java.lang.Integer">
+            <column name="rating" />
+        </property>
+        <property name="dateOfInterview" type="date">
+            <column name="date_of_interview" length="10" not-null="true" />
+        </property>
+        <property name="timeOfInterview" type="time">
+            <column name="time_of_interview" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

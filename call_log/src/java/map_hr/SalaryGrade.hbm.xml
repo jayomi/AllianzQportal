@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.SalaryGrade" table="salary_grade" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idSalaryGrade" type="java.lang.Integer">
+            <column name="id_salary_grade" />
+            <generator class="identity" />
+        </id>
+        <property name="salaryGradeDetails" type="string">
+            <column name="salary_grade_details" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

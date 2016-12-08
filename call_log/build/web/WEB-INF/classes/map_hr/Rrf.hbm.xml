@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.Rrf" table="rrf" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customStatus" class="map_hr.CustomStatus" fetch="select">
+            <column name="states_id_states" not-null="true" />
+        </many-to-one>
+        <many-to-one name="department" class="map_hr.Department" fetch="select">
+            <column name="department_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employmentBasis" class="map_hr.EmploymentBasis" fetch="select">
+            <column name="emp_type_id_emp_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jobGrade" class="map_hr.JobGrade" fetch="select">
+            <column name="job_grade_id_jb" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jobTitle" class="map_hr.JobTitle" fetch="select">
+            <column name="job_title_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="reasonForReqruitment" class="map_hr.ReasonForReqruitment" fetch="select">
+            <column name="reason_for_reqruitment_id_reason_for_reqruitment" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="map_hr.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="positionVacant" type="string">
+            <column name="position_vacant" length="45" not-null="true" />
+        </property>
+        <property name="workStation" type="string">
+            <column name="work_station" length="45" />
+        </property>
+        <property name="submitDate" type="timestamp">
+            <column name="submit_date" length="19" not-null="true" />
+        </property>
+        <property name="prefReqDate" type="timestamp">
+            <column name="pref_req_date" length="19" />
+        </property>
+        <property name="jobProfile" type="string">
+            <column name="job_profile" length="65535" />
+        </property>
+        <property name="publish" type="java.lang.Boolean">
+            <column name="publish" />
+        </property>
+        <set name="confidentiallRrfs" table="confidentiall_rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RRF_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.ConfidentiallRrf" />
+        </set>
+        <set name="intervieweeDetailses" table="interviewee_details" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RRF_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.IntervieweeDetails" />
+        </set>
+        <set name="rrfBacklogs" table="rrf_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RRF_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.RrfBacklog" />
+        </set>
+        <set name="reportingPersonRrfs" table="reporting_person_rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RRF_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.ReportingPersonRrf" />
+        </set>
+    </class>
+</hibernate-mapping>

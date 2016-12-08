@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.ArticleBacklog" table="article_backlog" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idBacklog" type="java.lang.Integer">
+            <column name="id_backlog" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="article" class="map_hr.Article" fetch="select">
+            <column name="article_id_article" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="map_hr.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="backLogData" type="string">
+            <column name="back_log_data" length="65535" not-null="true" />
+        </property>
+        <property name="dateOfLog" type="timestamp">
+            <column name="Date_of_log" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

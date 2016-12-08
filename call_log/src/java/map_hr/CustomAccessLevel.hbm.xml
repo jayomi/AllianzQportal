@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.CustomAccessLevel" table="custom_access_level" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="customAccessLevel" type="java.lang.Integer">
+            <column name="custom_access_level" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="accessLevel" class="map_hr.AccessLevel" fetch="select">
+            <column name="access_level_id" not-null="true" />
+        </many-to-one>
+        <property name="m1" type="boolean">
+            <column name="m1" not-null="true" />
+        </property>
+        <property name="m2" type="boolean">
+            <column name="m2" not-null="true" />
+        </property>
+        <property name="m3" type="boolean">
+            <column name="m3" not-null="true" />
+        </property>
+        <property name="m4" type="boolean">
+            <column name="m4" not-null="true" />
+        </property>
+        <property name="m5" type="boolean">
+            <column name="m5" not-null="true" />
+        </property>
+        <property name="m6" type="boolean">
+            <column name="m6" not-null="true" />
+        </property>
+        <property name="m7" type="boolean">
+            <column name="m7" not-null="true" />
+        </property>
+        <property name="m8" type="boolean">
+            <column name="m8" not-null="true" />
+        </property>
+        <property name="m9" type="boolean">
+            <column name="m9" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.JobTitle" table="job_title" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="jobTitle" type="string">
+            <column name="job_title" length="99" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" />
+        </property>
+        <property name="isDeleted" type="boolean">
+            <column name="is_deleted" not-null="true" />
+        </property>
+        <set name="rrfs" table="rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="job_title_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Rrf" />
+        </set>
+    </class>
+</hibernate-mapping>

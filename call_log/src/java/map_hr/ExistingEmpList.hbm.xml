@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.ExistingEmpList" table="existing_emp_list" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idExistingEmpList" type="java.lang.Integer">
+            <column name="id_Existing_Emp_List" />
+            <generator class="identity" />
+        </id>
+        <property name="epf" type="string">
+            <column name="EPF" length="45" />
+        </property>
+        <property name="existingEmpListcol" type="string">
+            <column name="Existing_Emp_Listcol" length="45" />
+        </property>
+        <property name="callingName" type="string">
+            <column name="Calling_Name" length="45" />
+        </property>
+        <property name="surname" type="string">
+            <column name="Surname" length="45" />
+        </property>
+        <property name="designation" type="string">
+            <column name="Designation" length="45" />
+        </property>
+        <property name="cadre" type="string">
+            <column name="Cadre" length="45" />
+        </property>
+        <property name="empCategoy" type="string">
+            <column name="Emp_Categoy" length="45" />
+        </property>
+        <property name="confirmedDate" type="date">
+            <column name="Confirmed_Date" length="10" />
+        </property>
+        <property name="joinedDate" type="date">
+            <column name="Joined_Date" length="10" />
+        </property>
+        <property name="allianzGroup" type="string">
+            <column name="Allianz_Group" length="45" />
+        </property>
+        <property name="department" type="string">
+            <column name="Department" length="45" />
+        </property>
+        <property name="gender" type="java.lang.Boolean">
+            <column name="Gender" />
+        </property>
+        <property name="existingEmpListcol1" type="string">
+            <column name="Existing_Emp_Listcol1" length="45" />
+        </property>
+        <property name="dob" type="date">
+            <column name="DOB" length="10" />
+        </property>
+        <property name="workStation" type="string">
+            <column name="workStation" length="45" />
+        </property>
+        <property name="isWorking" type="java.lang.Boolean">
+            <column name="isWorking" />
+        </property>
+        <property name="proPicPath" type="string">
+            <column name="pro_pic_path" length="65535" />
+        </property>
+        <set name="narrowvationArticles" table="narrowvation_article" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.NarrowvationArticle" />
+        </set>
+        <set name="reportingPersonRrfs" table="reporting_person_rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.ReportingPersonRrf" />
+        </set>
+        <set name="employeeBacklogs" table="employee_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.EmployeeBacklog" />
+        </set>
+        <set name="rnds" table="rnd" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Rnd" />
+        </set>
+        <set name="terminatedEmployeeses" table="terminated_employees" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.TerminatedEmployees" />
+        </set>
+        <set name="articles" table="article_has_existing_emp_list" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Existing_Emp_List_id_Existing_Emp_List" not-null="true" />
+            </key>
+            <many-to-many entity-name="map_hr.Article">
+                <column name="article_id_article" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

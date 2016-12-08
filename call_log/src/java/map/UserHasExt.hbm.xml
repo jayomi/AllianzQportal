@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.UserHasExt" table="user_has_ext" catalog="azcall" optimistic-lock="version">
+        <id name="iduserHasExt" type="java.lang.Integer">
+            <column name="iduser_has_ext" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="extension" class="map.Extension" fetch="select">
+            <column name="Extension_idExtension" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="map.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

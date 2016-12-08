@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.User" table="user" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="accessLevel" class="map_hr.AccessLevel" fetch="select">
+            <column name="access_level_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userRole" class="map_hr.UserRole" fetch="select">
+            <column name="user_role_id_user_role" not-null="true" />
+        </many-to-one>
+        <property name="empNo" type="string">
+            <column name="emp_no" length="99" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="65535" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="99" not-null="true" />
+        </property>
+        <property name="dateEntered" type="timestamp">
+            <column name="date_entered" length="19" />
+        </property>
+        <property name="dateModified" type="timestamp">
+            <column name="date_modified" length="19" />
+        </property>
+        <property name="modifiedUserId" type="java.lang.Integer">
+            <column name="modified_userID" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="states" type="boolean">
+            <column name="states" not-null="true" />
+        </property>
+        <property name="deleted" type="boolean">
+            <column name="deleted" not-null="true" />
+        </property>
+        <property name="reportingPerson" type="java.lang.Integer">
+            <column name="reporting_person" />
+        </property>
+        <set name="rrfs" table="rrf" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Rrf" />
+        </set>
+        <set name="histories" table="history" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.History" />
+        </set>
+        <set name="articleBacklogs" table="article_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.ArticleBacklog" />
+        </set>
+        <set name="rrfBacklogs" table="rrf_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.RrfBacklog" />
+        </set>
+        <set name="userPreferences" table="user_preference" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.UserPreference" />
+        </set>
+        <set name="candidatesBacklogs" table="candidates_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.CandidatesBacklog" />
+        </set>
+        <set name="employeeBacklogs" table="employee_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.EmployeeBacklog" />
+        </set>
+    </class>
+</hibernate-mapping>

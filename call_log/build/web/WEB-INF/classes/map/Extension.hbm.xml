@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.Extension" table="extension" catalog="azcall" optimistic-lock="version">
+        <id name="idExtension" type="java.lang.Integer">
+            <column name="idExtension" />
+            <generator class="identity" />
+        </id>
+        <property name="extensionNo" type="string">
+            <column name="Extension_no" length="45" />
+        </property>
+        <property name="virtualExt" type="string">
+            <column name="virtual_ext" length="45" />
+        </property>
+        <property name="forwordExt" type="string">
+            <column name="forword_ext" />
+        </property>
+        <property name="forwdExt1" type="string">
+            <column name="forwd_ext1" length="45" />
+        </property>
+        <property name="forwdExt2" type="string">
+            <column name="forwd_ext2" length="45" />
+        </property>
+        <property name="forwdExt3" type="string">
+            <column name="forwd_ext3" length="45" />
+        </property>
+        <property name="forwdExt4" type="string">
+            <column name="forwd_ext4" length="45" />
+        </property>
+        <set name="registerHasExts" table="register_has_ext" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="extension_idExtension" not-null="true" />
+            </key>
+            <one-to-many class="map.RegisterHasExt" />
+        </set>
+        <set name="assignees" table="assignee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="extension_idExtension" not-null="true" />
+            </key>
+            <one-to-many class="map.Assignee" />
+        </set>
+        <set name="userHasExts" table="user_has_ext" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Extension_idExtension" not-null="true" />
+            </key>
+            <one-to-many class="map.UserHasExt" />
+        </set>
+    </class>
+</hibernate-mapping>

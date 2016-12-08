@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:52:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map_hr.IntervieweeDetails" table="interviewee_details" catalog="allianz_hrlayer" optimistic-lock="version">
+        <id name="idIntervieweeDetails" type="java.lang.Integer">
+            <column name="id_interviewee_details" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="evaluationDocument" class="map_hr.EvaluationDocument" fetch="select">
+            <column name="evaluation_document_id_ed" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rrf" class="map_hr.Rrf" fetch="select">
+            <column name="RRF_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="45" not-null="true" />
+        </property>
+        <property name="mobileNumber" type="string">
+            <column name="mobile_number" length="45" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="shortlistDate" type="date">
+            <column name="shortlist_date" length="10" />
+        </property>
+        <property name="jobOfferedDate" type="date">
+            <column name="job_offered_date" length="10" />
+        </property>
+        <property name="reportingDate" type="date">
+            <column name="reporting_date" length="10" />
+        </property>
+        <property name="emailDetail" type="string">
+            <column name="email_detail" length="45" />
+        </property>
+        <set name="interviews" table="interview" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="interviewee_details_id_interviewee_details" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.Interview" />
+        </set>
+        <set name="candidatesBacklogs" table="candidates_backlog" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="interviewee_details_id_interviewee_details" not-null="true" />
+            </key>
+            <one-to-many class="map_hr.CandidatesBacklog" />
+        </set>
+    </class>
+</hibernate-mapping>

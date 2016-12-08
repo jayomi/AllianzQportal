@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2016 11:41:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="map.HeadBranch" table="head_branch" catalog="azcall" optimistic-lock="version">
+        <id name="idheadBranch" type="int">
+            <column name="idhead_branch" />
+            <generator class="assigned" />
+        </id>
+        <property name="headBranchName" type="string">
+            <column name="head_branch_name" length="45" />
+        </property>
+        <set name="branches" table="branch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="branch_idheadbranch" />
+            </key>
+            <one-to-many class="map.Branch" />
+        </set>
+        <set name="headbranchHasBranches" table="headbranch_has_branch" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="headbranch_idheadbranch" />
+            </key>
+            <one-to-many class="map.HeadbranchHasBranch" />
+        </set>
+    </class>
+</hibernate-mapping>
